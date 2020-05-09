@@ -1,3 +1,4 @@
+require("dotenv/config");
 var express = require("express");
 const multer = require("multer");
 const tesseract = require("tesseract.js");
@@ -30,6 +31,6 @@ routes.post("/ocr", upload.single("image"), async (req, res) => {
 
 app.use(routes);
 
-app.listen(3000, function () {
+app.listen(process.env.PORT || 3000, function () {
   console.log("Example app ocr listening on port 3000!");
 });
