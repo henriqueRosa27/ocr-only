@@ -2,12 +2,15 @@ require("dotenv/config");
 var express = require("express");
 const multer = require("multer");
 const tesseract = require("tesseract.js");
+const cors = require("cors");
 
 const multerConfig = require("./multer");
 
 var app = express();
 const routes = new express.Router();
 const upload = multer(multerConfig);
+
+app.use(cors())
 
 routes.get("/", async (req, res) => {
   res.send("Hello World!");
